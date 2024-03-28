@@ -1,4 +1,4 @@
-const activeToolEl = document.getElementById('active-tool');
+ const activeToolEl = document.getElementById('active-tool');
 const brushColorBtn = document.getElementById('brush-color');
 const brushIcon = document.getElementById('brush');
 const brushSize = document.getElementById('brush-size');
@@ -13,7 +13,9 @@ const downloadBtn = document.getElementById('download');
 const { body } = document;
 
 // Global Variables
-
+const canvas = document.createElement('canvas');
+canvas.id = 'canvas';
+const context = canvas.getContext('2d');
 let currentSize = 10;
 let bucketColor = '#FFFFFF';
 let currentColor = '#A51DAB';
@@ -63,10 +65,10 @@ let currentColor = '#A51DAB';
 
 // Create Canvas
 function createCanvas() {
-  // canvas.width = ;
-  // canvas.height = ;
-  // context.fillStyle = ;
-  // context.fillRect();
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight - 50;
+  context.fillStyle = bucketColor ;
+  context.fillRect(0, 0, canvas.width, canvas.height);
   body.appendChild(canvas);
 
 }
